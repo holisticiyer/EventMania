@@ -8,9 +8,14 @@ import org.hibernate.Transaction;
 
 import model.User;
 import util.HibernateUtil;
-
+/*
+ * This class is used to evaluate the input to see if there is an existing user in the database
+ */
 public class LoginService {
 
+	/*
+	 * validate the credential 
+	 */
     public boolean authenticateUser(String userId, String password) {
         User user = getUserByUserId(userId);          
         if(user!=null && user.getUserId().equals(userId) && user.getPassword().equals(password)){
@@ -19,7 +24,9 @@ public class LoginService {
             return false;
         }
     }
-
+    /*
+     * get the user info by ID
+     */
     public User getUserByUserId(String userId) {
         Session session = HibernateUtil.openSession();
         Transaction tx = null;
@@ -40,7 +47,9 @@ public class LoginService {
         }
         return user;
     }
-    
+    /*
+     * Retrieve all the records in the database and store them into an ArrayList
+     */
     public List<User> getListOfUsers(){
         List<User> list = new ArrayList<User>();
         Session session = HibernateUtil.openSession();

@@ -9,7 +9,9 @@ import javax.servlet.http.HttpServletResponse;
 import model.User;
 import service.LoginService;
 
-
+/*
+ * This servlet is used to get login credential from login form and call login service to verify if the input is correct
+ */
 public class LoginServlet extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

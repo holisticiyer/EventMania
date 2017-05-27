@@ -5,6 +5,11 @@ import org.hibernate.Transaction;
 
 import model.User;
 import util.HibernateUtil;
+
+/*
+ * This class is used to connect to the database using HibernateUtil, and save the new user record to the database
+ */
+
 public class RegisterService {
 	
 public boolean register(User user){

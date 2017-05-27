@@ -10,7 +10,9 @@ import javax.servlet.http.HttpServletResponse;
 import model.User;
 import service.RegisterService;
 
-
+/*
+ * This servlet reads the input parameters to
+ */
 public class RegisterServlet extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -24,7 +26,7 @@ public class RegisterServlet extends HttpServlet {
 	 String lastName = request.getParameter("lastName");
 	 String address = request.getParameter("address");
 	 String phone = request.getParameter("phone");
-//	 boolean isAdmin = request.getParameter("isAdmin")!= null; //true if checked, and false if not checked
+	 boolean isAdmin = request.getParameter("isAdmin")!= null; //true if checked, and false if not checked
 	 
 	 
 	

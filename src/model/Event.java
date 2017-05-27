@@ -4,11 +4,21 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class Event {
+	
 	private int eventId;
     private String eventName, eventType, eventDesc;
     private Date start, end;
     private ArrayList<Participant> invitationList;
     private ArrayList<Venue> eventLoc;
+    
+    public Event(int id, String name, String type, String desc, Date start, Date end){
+    	this.eventId = id;
+    	this.eventName = name;
+    	this.eventType = type;
+    	this.eventDesc = desc;
+    	this.start = start;
+    	this.end = end;
+    }
     public Event(String userEmail, Venue v) {
         Participant p = new Participant(eventId, userEmail, 1);
         p.attend();
