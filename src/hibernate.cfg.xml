@@ -1,14 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
-    <session-factory>
-        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
-        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/jdbcprog</property>
-        <property name="hibernate.connection.username">root</property>
-        <property name="hibernate.connection.password">1490</property>
-        <property name="show_sql">true</property>		
-        <property name="hbm2ddl.auto">create</property>
-        <mapping class="com.maruthi.model.User" /> 
-    </session-factory>
+	<session-factory>
+<!-- MySQL configuration stuffs -->
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/eventmania</property>
+		<property name="hibernate.connection.username">root</property>
+		<property name="hibernate.connection.password">1490</property>
+		<property name="show_sql">true</property>
+		<property name="hbm2ddl.auto">create</property>
+<!-- This is what Maruthi had in his code, I'm not sure if it's nesscessary. But I will leave it here for now -->
+		<mapping class="model.User" />
+		<mapping class="model.Event" />
+		<mapping class="model.Participant" />
+		<mapping class="model.Venue" />
+<!-- This is where hibernate used to map the User, Event, Participant, and Venue entities to the database.
+	 The fields (of entity class) and columns (in database) will be mapped according to the hbm.xml files -->
+		<mapping resource="user.hbm.xml" />
+		<mapping resource="event.hbm.xml" />
+		<mapping resource="participant.hbm.xml" />
+		<mapping resource="venue.hbm.xml" />
+	</session-factory>
 </hibernate-configuration>

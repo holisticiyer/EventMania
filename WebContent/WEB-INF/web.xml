@@ -4,12 +4,12 @@
   <servlet>
 		<display-name>LoginServlet</display-name>
 		<servlet-name>LoginServlet</servlet-name>
-		<servlet-class>com.maruthi.controller.LoginServlet</servlet-class>
+		<servlet-class>controller.LoginServlet</servlet-class>
 	</servlet>
 	<servlet>
 		<display-name>RegisterServlet</display-name>
 		<servlet-name>RegisterServlet</servlet-name>
-		<servlet-class>com.maruthi.controller.RegisterServlet</servlet-class>
+		<servlet-class>controller.RegisterServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>LoginServlet</servlet-name>
