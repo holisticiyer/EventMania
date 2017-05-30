@@ -20,7 +20,7 @@ public class LoginServlet extends HttpServlet {
 	 String password = request.getParameter("password");
 	 LoginService loginService = new LoginService();
 	 boolean result = loginService.authenticateUser(userId, password);
-	 User user = loginService.getUserByUserId(userId);
+	 User user = loginService.getUserByUserEmail(userId);
 	 if(result == true){
 		 request.getSession().setAttribute("user", user);		
 		 response.sendRedirect("home.jsp");

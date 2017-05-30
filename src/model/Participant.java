@@ -1,8 +1,6 @@
 package model;
-
+import java.util.Objects;
 public class Participant {
-
-
     private final int eventId;
     private final String userEmail;
     private boolean isOrganizer, isParticipant, isGuest, isAttending;
@@ -13,44 +11,30 @@ public class Participant {
         setStatus(status);
         miss();
     }
-	public boolean isOrganizer() {
-		return isOrganizer;
-	}
-	public void setOrganizer(boolean isOrganizer) {
-		this.isOrganizer = isOrganizer;
-	}
-	public boolean isParticipant() {
-		return isParticipant;
-	}
-	public void setParticipant(boolean isParticipant) {
-		this.isParticipant = isParticipant;
-	}
-	public boolean isGuest() {
-		return isGuest;
-	}
-	public void setGuest(boolean isGuest) {
-		this.isGuest = isGuest;
-	}
-	public boolean isAttending() {
-		return isAttending;
-	}
-	public void setAttending(boolean isAttending) {
-		this.isAttending = isAttending;
-	}
-	public int getEventId() {
-		return eventId;
-	}
-	public String getUserEmail() {
-		return userEmail;
-	}
-
-	private void noStatus() {
+    public int getEventId() {
+        return eventId;
+    }
+    public String getEmail() {
+        return userEmail;
+    }
+    public boolean isOrganizer() {
+        return isOrganizer;
+    }
+    public boolean isParticipant() {
+        return isParticipant;
+    }
+    public boolean isGuest() {
+        return isGuest;
+    }
+    public boolean isAttending() {
+        return isAttending;
+    }
+    private void noStatus() {
         isOrganizer= false;
         isParticipant= false;
         isGuest= false;
     }
-
-	public void setStatus(int status) {
+    public void setStatus(int status) {
         noStatus();
         switch(status) {
             case 1: isOrganizer = true; break;
@@ -58,12 +42,26 @@ public class Participant {
             case 3: isGuest = true;
         }
     }
-	public void attend() {
+    public void attend() {
         isAttending = true;
     }
-
-	public void miss() {
+    public void miss() {
         isAttending = false;
     }
-
+    @Override
+    public boolean equals(Object o) {
+        if(o != null && o instanceof Participant) {
+            Participant p = (Participant) o;
+            return((p.getEmail().equals(userEmail) && (p.getEventId() == eventId)));
+        }
+        else
+            return false;
+    }
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 23 * hash + this.eventId;
+        hash = 23 * hash + Objects.hashCode(this.userEmail);
+        return hash;
+    }
 }

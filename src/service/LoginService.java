@@ -17,24 +17,24 @@ public class LoginService {
 	 * validate the credential 
 	 */
     public boolean authenticateUser(String userId, String password) {
-        User user = getUserByUserId(userId);          
-        if(user!=null && user.getUserId().equals(userId) && user.getPassword().equals(password)){
+        User user = getUserByUserEmail(userId);          
+        if(user!=null && user.getEmail().equals(userId) && user.getPassword().equals(password)){
             return true;
         }else{ 
             return false;
         }
     }
     /*
-     * get the user info by ID
+     * get the user info by email
      */
-    public User getUserByUserId(String userId) {
+    public User getUserByUserEmail(String userEmail) {
         Session session = HibernateUtil.openSession();
         Transaction tx = null;
         User user = null;
         try {
             tx = session.getTransaction();
             tx.begin();
-            Query query = session.createQuery("from User where userId='"+userId+"'");
+            Query query = session.createQuery("from User where userEmail='"+userEmail+"'");
             user = (User)query.uniqueResult();
             tx.commit();
         } catch (Exception e) {

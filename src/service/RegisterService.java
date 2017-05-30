@@ -40,7 +40,7 @@ public boolean isUserExists(User user){
 	 try{
 		 tx = session.getTransaction();
 		 tx.begin();
-		 Query query = session.createQuery("from User where userId='"+user.getUserId()+"'");
+		 Query query = session.createQuery("from User where userEmail='"+user.getEmail()+"'");
 		 User u = (User)query.uniqueResult();
 		 tx.commit();
 		 if(u!=null) result = true;
@@ -53,4 +53,6 @@ public boolean isUserExists(User user){
 	 }
 	 return result;
 }
+
+
 }

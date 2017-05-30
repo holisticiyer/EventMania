@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated May 27, 2017 2:00:28 PM by Hibernate Tools 3.5.0.Final -->
+
+<hibernate-mapping>
+    <class name="model.Event" table="EVENT">
+    
+    	<!-- This is the primary key for Event table -->
+        <id name="eventId" type="int" access="field">
+            <column name="EVENTID" />
+            <generator class="assigned" />
+        </id>
+        <property name="eventName" type="java.lang.String" access="field">
+            <column name="EVENTNAME" />
+        </property>
+        <property name="eventType" type="java.lang.String" access="field">
+            <column name="EVENTTYPE" />
+        </property>
+        <property name="eventDesc" type="java.lang.String" access="field">
+            <column name="EVENTDESC" />
+        </property>
+        <property name="start" type="java.util.Date" access="field">
+            <column name="START" />
+        </property>
+        <property name="end" type="java.util.Date" access="field">
+            <column name="END" />
+        </property>
+        
+        <list name="invitationList" inverse="false" table="PARTICIPANT" lazy="true" access="field">
+            <key>
+                <column name="EVENTID" />
+            </key>
+            <list-index></list-index>
+            <one-to-many class="model.Participant" />
+        </list>
+        
+        <list name="eventLoc" inverse="false" table="VENUE" lazy="true" access="field">
+            <key>
+                <column name="EVENTID" />
+            </key>
+            <list-index></list-index>
+            <one-to-many class="model.Venue" />
+        </list>
+        
+    </class>
+</hibernate-mapping>

@@ -43,7 +43,7 @@ public class NewEventService {
 		 try{
 			 tx = session.getTransaction();
 			 tx.begin();
-			 Query query = session.createQuery("from Event where eventId='"+event.getID()+"'");
+			 Query query = session.createQuery("from Event where eventId='"+event.getId()+"'");
 			 Event u = (Event)query.uniqueResult();
 			 tx.commit();
 			 if(u!=null) result = true;

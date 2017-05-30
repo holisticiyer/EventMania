@@ -9,7 +9,7 @@
 		<property name="hibernate.connection.username">root</property>
 		<property name="hibernate.connection.password">1490</property>
 		<property name="show_sql">true</property>
-		<property name="hbm2ddl.auto">create</property>
+		<property name="hbm2ddl.auto">update</property>
 <!-- This is what Maruthi had in his code, I'm not sure if it's nesscessary. But I will leave it here for now -->
 		<mapping class="model.User" />
 		<mapping class="model.Event" />
@@ -17,9 +17,9 @@
 		<mapping class="model.Venue" />
 <!-- This is where hibernate used to map the User, Event, Participant, and Venue entities to the database.
 	 The fields (of entity class) and columns (in database) will be mapped according to the hbm.xml files -->
-		<mapping resource="user.hbm.xml" />
-		<mapping resource="event.hbm.xml" />
-		<mapping resource="participant.hbm.xml" />
-		<mapping resource="venue.hbm.xml" />
+		<mapping resource="User.hbm.xml" />
+		<mapping resource="Event.hbm.xml" />
+		<mapping resource="Participant.hbm.xml" />
+		<mapping resource="Venue.hbm.xml" />
 	</session-factory>
 </hibernate-configuration>

@@ -19,18 +19,16 @@ public class RegisterServlet extends HttpServlet {
 	 response.setContentType("text/html;charset=UTF-8");
 	 PrintWriter out = response.getWriter();
 	 
+	 //Reading input from web page
 	 String userId = request.getParameter("userId");
 	 String email = request.getParameter("email");
 	 String password = request.getParameter("password");
 	 String firstName = request.getParameter("firstName");
 	 String lastName = request.getParameter("lastName");
-	 String address = request.getParameter("address");
 	 String phone = request.getParameter("phone");
-	 boolean isAdmin = request.getParameter("isAdmin")!= null; //true if checked, and false if not checked
 	 
-	 
-	
-	 User user = new User(userId, email, password, firstName, lastName, address, phone);
+	//Create user object with the retrieved inputs
+	 User user = new User(userId, email, password, firstName, lastName, phone);
 			
 	 try {	
 		 RegisterService registerService = new RegisterService();
