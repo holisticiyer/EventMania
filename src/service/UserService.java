@@ -24,7 +24,7 @@ public class UserService {
         try {
             tx = session.getTransaction();
             tx.begin();
-            Query query = session.createQuery("from User where userEmail='"+userEmail+"'");
+            Query query = session.createQuery("from User where userEmail='"+email+"'");
             user = (User)query.uniqueResult();
             tx.commit();
         } catch (Exception e) {
